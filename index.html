@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>clock2</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="hello">
+    <h1 class="gradient-3">Until my birdthday</h1>
+  </div>
+  <img src="cake.png" class="cake"></img>
+    <div class="container">
+    <ul>
+      <li><span id="days"></span>days</li>
+      <li><span id="hours"></span>hours</li>
+      <li><span id="minutes"></span>minutes</li>
+      <li><span id="seconds"></span>seconds</li>
+    </ul>
+  </div>
+  </body>
+
+
+<!-- javascript를 이용한 코딩 -->
+<script>
+const second = 1000,
+      minute = second * 60,
+      hour = minute * 60,
+      day = hour * 24;
+let countDown = new Date('Feb 03, 2019 00:00:00').getTime(),
+    x = setInterval(function() {
+      let now = new Date().getTime(),
+          distance = countDown - now;
+      document.getElementById('days').innerText = Math.floor(distance / (day)),
+        document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+        document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+        document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);}, second)
+</script>
+</html>
